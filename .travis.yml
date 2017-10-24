@@ -7,7 +7,7 @@ services:
 
 env:
   global:
-      secure: "gU7ZPd0U9THq/Xx1EBp4O9wE8rmOzqlzv52sdl2Zxr6RhSCEuX5EQ5WYR5uhEPho/I6FS9q2lPBTRuEOFUCgSmI03szNOl5XEtAf7rcpZweGdn/opc72gmdsI+AzgUt76AS/SRCNJn/g8imE09wPGqE6pmQPDTC+RCQOjyhfgeUtQ4PxQxUAmGTa0scHTig236fPleOfYTr2j5XZeDo4wpguCxSLwhQwI5+Mg5SRMjeurXuR29Cr6qEMCc0JkBu/1iXBcO85fSScV9bDt/8UHRRdaGPjWswnkFXA8LA+RoOCdlypXjqBT/LtDI7g0OpDG4QQnM7SYUC9L8WC1sUSwgqDmBhVahiAmfIgBhRwz7hzTzCSpvJh5yieQdhFq9l0icacWJKIGIF1X5m4TqbNQC0LWj0hZhRX84yLmdB6SC2tsoJrs8lx2RxaBWwF+l5+bCwRemaWq0ilvfYKyIyfQ5O1M5BO9Ouey9tbySYUUSm6HnjfdodmPUiflm6WC4Vz/wTZtyMGjYVqmnG5c/giPNPIpTf8f7pFJZa74U1eBNMzvdgrkSz3Bk0356IU7+upfiX0pcq+AeYDDN/Y+TthaIWx451yITJwyN6zowCDggPLeGZzZEfsX1lhMdHpnphh0X7y9OlZLY4lJWIET7CjeGltAILI9IKtFdMhATKgYHw="
+    secure: "o916o4oJYL+0VCXVbDW/BBSt1LnD4w/Vfem8XJ0UVIGitLJJQfPKkYbVS0Xr3sLYYyfcliftJLM0zJ3nCLJ8mLzTaLJSbf9fVytEItil+G2TqOzEscohGyqmZbm835EmN3r2j6RU7t2FnDQ9tkjL/C907JibIJO/cJPPt95sCtlvi2MkS75J5OVt//G1PD8K4OJlmfpWyX0JWu0MUdIX4NZTZTPldlNmU2OOSOwfazXcxNBroPF9Htg/6NLr4XWzvWVTitI5KAiyNmwEGnYjQosbmgspz2tDxA62GegvKlEuWu/qkxjryEFatv2aeGEOm+IRkJ/ikcIojHtJvNfLnMI1A/NAQe3XLjJ9iPuwQPNgCWHcxkzT9ugbpdS7IzP39HZc3f/T1EQHByT0M1Me/4m4eWnrLMB8UseZzVhr2viTOlPpsiMnaEAka8MnpyaShR/ahlYdm7zJjBW+EosEwyrjO2KV67iYefowDoXd6V0lHaCYhlc2fsxy/cc1UgkggsqGwtiPdzhRVfe9kW6NRXTwQJugGWO0/ZG+9bpY3/qIy9Hy7P7f2Xd5vt70Z/L2VLyNR9TeA/ldjfn7fEY6o+ZEfsIhUNrG442DaovLU6bX9dDU1p0AXAIF9UBNqOH9LVNwqswamIgHF8uZbtuZe/9IlTATb49PIemzmrTbxFg="
 
 before_install:
   - sudo apt-get update
@@ -18,7 +18,7 @@ script:
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker build . ;
+    docker build -t $DOCKER_REPO . ;
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    docker push iljich/fmbot;
+    docker push $DOCKER_REPO;
     fi
