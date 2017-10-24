@@ -9,6 +9,10 @@ env:
   global:
       secure: "gU7ZPd0U9THq/Xx1EBp4O9wE8rmOzqlzv52sdl2Zxr6RhSCEuX5EQ5WYR5uhEPho/I6FS9q2lPBTRuEOFUCgSmI03szNOl5XEtAf7rcpZweGdn/opc72gmdsI+AzgUt76AS/SRCNJn/g8imE09wPGqE6pmQPDTC+RCQOjyhfgeUtQ4PxQxUAmGTa0scHTig236fPleOfYTr2j5XZeDo4wpguCxSLwhQwI5+Mg5SRMjeurXuR29Cr6qEMCc0JkBu/1iXBcO85fSScV9bDt/8UHRRdaGPjWswnkFXA8LA+RoOCdlypXjqBT/LtDI7g0OpDG4QQnM7SYUC9L8WC1sUSwgqDmBhVahiAmfIgBhRwz7hzTzCSpvJh5yieQdhFq9l0icacWJKIGIF1X5m4TqbNQC0LWj0hZhRX84yLmdB6SC2tsoJrs8lx2RxaBWwF+l5+bCwRemaWq0ilvfYKyIyfQ5O1M5BO9Ouey9tbySYUUSm6HnjfdodmPUiflm6WC4Vz/wTZtyMGjYVqmnG5c/giPNPIpTf8f7pFJZa74U1eBNMzvdgrkSz3Bk0356IU7+upfiX0pcq+AeYDDN/Y+TthaIWx451yITJwyN6zowCDggPLeGZzZEfsX1lhMdHpnphh0X7y9OlZLY4lJWIET7CjeGltAILI9IKtFdMhATKgYHw="
 
+before_install:
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+
 script:
 - go test .
 
